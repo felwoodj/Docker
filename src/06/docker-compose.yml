@@ -1,0 +1,12 @@
+version: "3"
+services:
+  server:
+      build: ../05
+      container_name: miniserver
+  nginx:
+      image: nginx:latest
+      container_name: nginx_proxy
+      ports:
+        - "80:8080"
+      volumes:
+        - /nginx.conf:/etc/nginx/nginx.conf
